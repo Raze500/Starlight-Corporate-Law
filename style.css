@@ -1,0 +1,317 @@
+:root{
+  --bg:#0f0f12;
+  --panel:#17171c;
+  --panel2:#1f1f26;
+  --text:#f2f2f3;
+  --muted:#a9a9b3;
+  --border:#2a2a33;
+  --accent:#3b82f6;
+  --danger:#ef4444;
+  --warn:#f59e0b;
+  --ok:#22c55e;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.app{
+  display:flex;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* LEFT */
+.left{
+  width:62%;
+  border-right:1px solid var(--border);
+  overflow:auto;
+  padding:18px 18px 28px;
+}
+.leftHeader h1{ margin:0 0 4px; font-size:20px; }
+.subtle{ margin:0 0 14px; color:var(--muted); font-size:13px; }
+
+/* RIGHT */
+.right{
+  width:38%;
+  overflow:auto;
+  padding:18px;
+  background:linear-gradient(180deg, var(--panel) 0%, #141418 100%);
+}
+.rightHeader h2{ margin:0 0 10px; }
+
+.nameRow{
+  display:flex;
+  gap:10px;
+  margin-bottom:12px;
+}
+input, select{
+  background:var(--panel2);
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:10px;
+  outline:none;
+}
+#criminalName{ flex:1; }
+
+button{
+  border:1px solid var(--border);
+  background:var(--panel2);
+  color:var(--text);
+  border-radius:8px;
+  padding:10px 12px;
+  cursor:pointer;
+}
+button:hover{ filter:brightness(1.08); }
+button.primary{
+  background:var(--accent);
+  border-color:transparent;
+}
+button.ghost{
+  background:transparent;
+}
+
+.totals{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:12px;
+}
+.totalsRow{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:4px 0;
+}
+.totalsRow .k{ color:var(--muted); }
+.totalsRow .v{ font-weight:700; }
+.hint{
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.3;
+}
+.statusDanger{ color:var(--danger) !important; }
+.statusWarn{ color:var(--warn) !important; }
+.statusOk{ color:var(--ok) !important; }
+
+/* Modifiers */
+.modPanel{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+  margin-bottom:12px;
+}
+.modPanel h3{ margin:0 0 10px; font-size:14px; color:var(--muted); }
+.modGrid{ display:grid; gap:10px; }
+.chk{ display:flex; gap:10px; align-items:flex-start; }
+.chk input{ margin-top:3px; }
+.row{ display:flex; gap:10px; align-items:center; }
+.rowLabel{ min-width:180px; color:var(--text); }
+#repeatCount{ width:90px; }
+.muted{ color:var(--muted); font-size:12px; }
+.legalNote{
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  border:1px dashed var(--border);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+
+/* Records */
+.records{
+  background:var(--panel2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:12px;
+}
+.recordsHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+.recordsHead h3{ margin:0; font-size:14px; color:var(--muted); }
+.recordsList{ display:grid; gap:10px; }
+
+.record{
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  background:#15151b;
+}
+.recordTop{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:6px;
+}
+.recordName{ font-weight:700; }
+.recordMeta{ color:var(--muted); font-size:12px; }
+.recordCrimes{
+  margin:8px 0;
+  padding:8px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.35;
+  white-space:pre-line;
+}
+.recordActions{
+  display:flex;
+  gap:8px;
+}
+
+/* Accordion */
+.accordion{ display:grid; gap:10px; }
+.accItem{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--panel);
+}
+.accHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 12px;
+  cursor:pointer;
+  user-select:none;
+  background:rgba(255,255,255,0.02);
+}
+.accHeader h3{
+  margin:0;
+  font-size:14px;
+}
+.accHeader .pill{
+  color:var(--muted);
+  font-size:12px;
+}
+.accBody{
+  display:none;
+  padding:10px 12px 14px;
+}
+.accItem.open .accBody{ display:block; }
+
+.crimeRow{
+  border-top:1px solid var(--border);
+  padding:10px 0;
+}
+.crimeTop{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.crimeBtn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+}
+.toggle{
+  width:34px;
+  height:26px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:var(--panel2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+.crimeBtn .name{
+  font-weight:700;
+  font-size:13px;
+}
+.crimeBtn .mins{
+  color:var(--muted);
+  font-size:12px;
+  margin-left:auto;
+}
+.infoBtn{
+  width:34px;
+  height:26px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  background:transparent;
+  color:var(--muted);
+}
+.crimeDesc{
+  display:none;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+.crimeRow.showDesc .crimeDesc{ display:block; }
+
+.crimeRow.selected .toggle{
+  background:var(--accent);
+  border-color:transparent;
+}
+.crimeRow.selected .name{
+  color:#e8f0ff;
+}
+
+.signature {
+  position: fixed;
+  bottom: 10px;
+  right: 16px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 1px;
+  font-family: Arial, sans-serif;
+  cursor: default;
+  transition: 0.3s ease;
+}
+
+/* NEVEC highlighted */
+.signature span {
+  color: #3b82f6;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+/* Banana hidden initially */
+.signature::after {
+  content: "";
+  margin-left: 6px;
+  opacity: 0;
+  display: inline-block;
+}
+
+/* On hover */
+.signature:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.signature:hover span {
+  color: #60a5fa;
+}
+
+/* Banana appears + bounce */
+.signature:hover::after {
+  content: "🍌";
+  opacity: 1;
+  animation: bananaBounce 0.6s ease;
+}
+
+/* Bounce animation */
+@keyframes bananaBounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  60%  { transform: translateY(3px); }
+  100% { transform: translateY(0); }
+}

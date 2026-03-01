@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Starlight Corporate Law Sentencing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- izquierdaA: Crime List ONLY -->
+    <section class="left">
+      <header class="leftHeader">
+        <h1>starlight Corporate Law – Crime List</h1>
+        <p class="subtle">
+          Stackable by default. Linked crimes cannot be charged together (auto-replaces). 
+        </p>
+      </header>
+
+      <div class="accordion" id="crimeAccordion"></div>
+    </section>
+
+    <!-- derecha: Registry -->
+    <aside class="right">
+      <header class="rightHeader">
+        <h2>Case Registry</h2>
+        <div class="nameRow">
+          <input id="criminalName" type="text" placeholder="Criminal name…" autocomplete="off" />
+          <button id="saveBtn" class="primary">Save</button>
+        </div>
+
+        <div class="totals">
+          <div class="totalsRow">
+            <div class="k">Total</div>
+            <div class="v"><span id="totalMinutes">0</span> min</div>
+          </div>
+          <div class="totalsRow">
+            <div class="k">Status</div>
+            <div class="v" id="statusText">Warning eligible</div>
+          </div>
+          <div class="hint" id="statusHint"></div>
+        </div>
+      </header>
+
+      <section class="modPanel">
+        <h3>Sentencing Modifiers (global)</h3>
+
+        <div class="modGrid">
+          <label class="chk">
+            <input type="checkbox" id="modMalfeasance" />
+            <span><strong>Malfeasance</strong> (+50%) <span class="muted">Command/Security offender</span></span>
+          </label>
+
+          <label class="chk">
+            <input type="checkbox" id="modObstruction" />
+            <span><strong>Obstruction</strong> (+50%) <span class="muted">interfered with investigation</span></span>
+          </label>
+
+          <label class="chk">
+            <input type="checkbox" id="modNoIntent" />
+            <span><strong>Absence of Intent</strong> (-50%) <span class="muted">accidental/unintentional</span></span>
+          </label>
+
+          <label class="row">
+            <span class="rowLabel"><strong>Disclosure &amp; Surrender</strong></span>
+            <select id="modCoop">
+              <option value="0">None</option>
+              <option value="0.5">50% reduction</option>
+              <option value="0.75">75% reduction</option>
+            </select>
+          </label>
+
+          <label class="row">
+            <span class="rowLabel"><strong>Repeat Offenders</strong></span>
+            <input id="repeatCount" type="number" min="0" value="0" />
+            <span class="muted">(+5 min each)</span>
+          </label>
+        </div>
+
+        <div class="legalNote">
+          <strong>Reminder:</strong> Under 10 minutes is arresting officer authority. Charges must be read before Warden/HoS.
+        </div>
+      </section>
+
+      <section class="records">
+        <div class="recordsHead">
+          <h3>Saved Cases</h3>
+          <button id="clearBtn" class="ghost">Clear</button>
+        </div>
+        <div id="recordsContainer" class="recordsList"></div>
+      </section>
+    </aside>
+
+  </div>
+
+  <script src="math.js"></script>
+
+  <div class="signature">
+  Made by <span>NEVEC</span>!!
+    </div>
+
+</body>
+</html>
